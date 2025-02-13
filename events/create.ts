@@ -2,7 +2,7 @@ import { Dropbox } from "dropbox";
 import { TAbstractFile } from 'obsidian';
 
 export default function onCreate(dropbox: Dropbox, statusbar: HTMLElement) {
-	return async (file: TAbstractFile) => {
+	return async (file: TAbstractFile & {extension?: string}) => {
 		statusbar.setText('Creating...')
 
 		if (file?.extension) {
